@@ -6,6 +6,7 @@ Las URL con los servicios desplegados son </br>
 <h3> SWAGGER</h3>
 Productos: https://productos-250024265632.us-central1.run.app/swagger-ui/index.html</br> 
 Inventarios: https://inventario-250024265632.us-central1.run.app/swagger-ui/index.html</br> </br> 
+Los docker estan dentro del codigo fuente de cada proyecto en la ruta <b> /target</b> </br> </br> 
 El servicio Productos esta confugurado para el puerto 8080 y el servicio Inventario para el puerto 8081</br> 
 Ambos servicios necesitan una api key para poder funcionar, la cual se envia en un header</br> 
 nombre header: VENTAS-API-KEY</br> 
