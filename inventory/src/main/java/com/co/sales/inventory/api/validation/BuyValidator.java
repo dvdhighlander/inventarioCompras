@@ -24,15 +24,6 @@ public class BuyValidator implements ConstraintValidator<RequestValidations, Com
     		throw new IllegalArgumentException(InventoryConstants.ERROR_ZERO_BUY);
     	}
 
-//    	try {
-//    	InventoryDTO inventory= inventoryService.getInventoryById(producto.productoId());
-//    	if(inventory==null) {
-//    		throw new IllegalArgumentException(InventoryConstants.NO_PRODUCT);
-//    	}
-//    	return true;
-//    	}catch(NoSuchElementException e) {
-//    		throw new IllegalArgumentException(InventoryConstants.NO_PRODUCT);
-//    	}
   	return true;
 
 }
