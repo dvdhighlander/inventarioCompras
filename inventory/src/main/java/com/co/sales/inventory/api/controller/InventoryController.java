@@ -1,7 +1,6 @@
 package com.co.sales.inventory.api.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,28 +41,28 @@ public class InventoryController {
 	
 	@GetMapping("/{id}")
 	@ResponseBody
-	public ResponseEntity<InventoryDTO> getInventoryById(@PathVariable int id){
+	public ResponseEntity<InventoryDTO> getInventoryById(@PathVariable(required = true) int id){
 		InventoryDTO product= inventoryService.getInventoryById(id);
 		return  new ResponseEntity<InventoryDTO>(product, HttpStatus.OK);
 	}
 	
 	@PostMapping
-	public InventoryResponse createInventory(@RequestBody Inventory newInv) {
+	public InventoryResponse createInventory(@RequestBody(required = true)  Inventory newInv) {
 		return inventoryService.createInventory(newInv);
 	}
 	
 	@PutMapping("/RegistrarCompra")
-	public CompraResponse buyProduct(@RequestBody @Valid @RequestValidations() CompraDTO compras) {
+	public CompraResponse buyProduct(@RequestBody(required = true) @Valid @RequestValidations() CompraDTO compras) {
 		return inventoryService.buyProduct(compras);
 	}
 	
 	@PutMapping
-	public InventoryResponse updateInventory(@RequestBody Inventory newInv) {
+	public InventoryResponse updateInventory(@RequestBody(required = true) Inventory newInv) {
 		return inventoryService.updateInventory(newInv);
 	}
 	
 	  @DeleteMapping("/{id}")
-	  public InventoryResponse deleteInventory(@PathVariable int id) {
+	  public InventoryResponse deleteInventory(@PathVariable(required = true) int id) {
 		  return inventoryService.deleteInventory(id);
 	  }
 }

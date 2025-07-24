@@ -20,6 +20,9 @@ import com.co.sales.products.api.model.Products;
 import com.co.sales.products.api.model.ProductsDTO;
 import com.co.sales.products.api.model.ProductsResponse;
 import com.co.sales.products.api.service.ProductsServiceImpl;
+import com.co.sales.products.api.validators.RequestValidations;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/Productos")
@@ -43,17 +46,17 @@ public class ProductsController {
 	}
 
 	@PostMapping
-	public ProductsResponse createProduct(@RequestBody ProductsDTO newProd) {
+	public ProductsResponse createProduct(@RequestBody(required = true)  @Valid @RequestValidations() ProductsDTO newProd) {
 		return productService.createProduct(newProd);
 	}
 
 	@PutMapping("/{id}")
-	public ProductsResponse updateProduct(@RequestBody ProductsDTO newProd, @PathVariable int id) {
+	public ProductsResponse updateProduct(@RequestBody(required = true) @Valid @RequestValidations() ProductsDTO newProd, @PathVariable(required = true) int id) {
 		return productService.updateProduct(newProd, id);
 	}
 
 	@DeleteMapping("/{id}")
-	public ProductsResponse deleteProduct(@PathVariable int id) {
+	public ProductsResponse deleteProduct(@PathVariable(required = true) int id) {
 		return productService.deleteProduct(id);
 	}
 }
