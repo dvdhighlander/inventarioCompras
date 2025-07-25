@@ -65,7 +65,10 @@ El JSON del body puede verse en la documentación swagger.
 
 
 <h2> CONECCION A BASE DE DATOS </h2> 
-La base de datos utilizada fue MySQL para poder utilizar las llaves foraneas y porque es mas sencillo para el manejo de entidades</br>
+La base de datos utilizada fue MySQL para poder utilizar las llaves foraneas (automaticamente valida que el id producto exista) y porque es mas sencillo para el manejo de entidades</br>
+Se crearon 2 tablas Productos e Inventarios, la tabla Inventarios tiene una llave foranea indicando el id del producto.</br>
+Se crearon estas dos tablas porque el ejercicio pedia un podelo de dos tablas.</br>
+Normalmente no crearia este ejercicio asi, ya que logicamente un mismo producto no deberia tener mas de una cantidad, pero estre modelo servicira si despues se va a expandir la funcionalidad, por ejemplo creando una tabla de sucursales, en cuyo caso la tabla de inventario aparte seria necesaria. </br>
 Los scripts para la creación de las tablas son:</br>
 CREATE TABLE `productos` (
   `id` INT NOT NULL,
